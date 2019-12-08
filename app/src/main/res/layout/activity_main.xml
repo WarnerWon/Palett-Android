@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/brandicon"
+        android:layout_width="100dp"
+        android:layout_height="113dp"
+        android:contentDescription="@string/brandicon"
+        android:src="@drawable/brandicon" />
+
+    <TextView
+        android:id="@+id/brandtext"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/palett"
+        android:textSize="16pt"/>
+
+    <ProgressBar
+        android:id="@+id/progress_view"
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

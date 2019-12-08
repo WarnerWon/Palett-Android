@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="32dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/brandicon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/brandicon"
+        android:contentDescription="@string/brandicon"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/bienvenido"
+        android:textAlignment="center"
+        android:textSize="16pt"
+        android:textColor="@color/colorpalettText"
+        android:layout_marginTop="8dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp">
+
+        <TextView
+            android:id="@+id/txtcorreo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/correo_electronico"
+            android:textColor="@color/colorpalettText"
+            android:textSize="8pt"/>
+
+        <EditText
+            android:id="@+id/correoinput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/ejemplo_ejemplo_com"
+            android:inputType="textEmailAddress"
+            android:layout_below="@id/txtcorreo"
+            tools:ignore="Autofill"/>
+
+        <TextView
+            android:id="@+id/txtcontraseña"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contrase_a"
+            android:layout_below="@id/correoinput"
+            android:textColor="@color/colorpalettText"
+            android:textSize="8pt"
+            android:layout_marginTop="16dp"/>
+
+        <EditText
+            android:id="@+id/contraseñainput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/passhint"
+            android:inputType="textPassword"
+            android:layout_below="@id/txtcontraseña"
+            tools:ignore="Autofill"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/entrar"/>
+
+</LinearLayout>
