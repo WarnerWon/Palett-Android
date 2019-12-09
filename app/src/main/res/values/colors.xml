@@ -5,5 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorpalettPrimary">#0d1217</color>
     <color name="colorpalettText">#0d1217</color>
+    <color name="colorpalettContainer">#0d1217</color>
+    <color name="colorpalettContainerText">#AFAFFF</color>
 
 </resources>
