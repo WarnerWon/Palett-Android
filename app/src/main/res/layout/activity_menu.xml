@@ -2,36 +2,52 @@
 <RelativeLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:padding="16dp"
+    android:background="@drawable/bg002"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <ImageButton
-        android:id="@+id/menu_icon"
-        android:layout_width="49dp"
-        android:layout_height="48dp"
-        android:background="@drawable/notification_icon"
-        android:contentDescription="@string/menu_icon" />
-    <LinearLayout
-        android:id="@+id/Content1"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_below="@+id/menu_icon">
-        <Button
+        android:layout_height="match_parent"
+        android:background="#fff"
+        android:padding="16dp">
+        <ImageButton
+            android:id="@+id/menu_icon"
+            android:layout_width="49dp"
+            android:layout_height="48dp"
+            android:background="@drawable/notification_icon"
+            android:contentDescription="@string/menu_icon" />
+        <TextView
+            android:id="@+id/menuText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10pt"
+            android:text="@string/menu_principal"
+            android:layout_marginStart="32dp"
+            android:textColor="@color/colorpalettRecyclerColor"
+            android:layout_toEndOf="@+id/menu_icon"/>
+        <LinearLayout
+            android:id="@+id/Content1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ordenes"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/productos"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/materiales"/>
-
-    </LinearLayout>
-
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_below="@+id/menu_icon">
+            <Button
+                android:id="@+id/menuOrden"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ordenes"/>
+            <Button
+                android:id="@+id/menuProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/productos"/>
+            <Button
+                android:id="@+id/menuMaterial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/materiales"/>
+        </LinearLayout>
+    </RelativeLayout>
 </RelativeLayout>

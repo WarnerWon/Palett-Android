@@ -2,12 +2,15 @@ package com.example.palett;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -48,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        Toast.makeText(LoginActivity.this, "Cargando", Toast.LENGTH_SHORT).show();
         JsonObjectRequest objectRequest = new JsonObjectRequest(Request.Method.POST, Url, request,
                 new Response.Listener<JSONObject>() {
             JSONObject aux = null;
@@ -61,6 +65,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         DataUser.getInstance().setEmail(aux.getString("email"));
                         Toast.makeText(LoginActivity.this, "Bienvenido " + DataUser.getInstance().getName(),
                                 Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
+                        startActivity(intent);
                     }
                     else {
                         Toast.makeText(LoginActivity.this, "Datos de inicio de sesion incorrectos",
@@ -77,6 +83,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         Toast.LENGTH_SHORT).show();
             }
         });
+        objectRequest.setRetryPolicy(new DefaultRetryPolicy(
+                        7000,
+                        0,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+        queue.add(objectRequest);
     }
 
     @Override

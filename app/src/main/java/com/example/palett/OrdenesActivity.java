@@ -1,14 +1,19 @@
 package com.example.palett;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+
+import java.util.ArrayList;
 
 public class OrdenesActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView = null;
     private RecyclerView.LayoutManager layoutManager = null;
+    private AdaptadorOrdenes adaptador = null;
+    private ArrayList<OrdenData> Lista = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +23,12 @@ public class OrdenesActivity extends AppCompatActivity {
     }
 
     protected void init(){
+        recyclerView = findViewById(R.id.RecyclerViewOrdenes);
+        Lista = (ArrayList<OrdenData>) getIntent().getSerializableExtra("Lista");
+        layoutManager = new LinearLayoutManager(this);
+        adaptador = new AdaptadorOrdenes(Lista);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adaptador);
 
     }
 }

@@ -16,4 +16,5 @@
     <string name="ordenes">Ordenes</string>
     <string name="productos">Productos</string>
     <string name="materiales">Materiales</string>
+    <string name="menu_principal">Menu Principal</string>
 </resources>
