@@ -6,27 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private ProgressBar progressBar = null;
-    private int progress = 0, i;
+    private int progress = 0;
     private Handler handler = new Handler();
 
     @Override
@@ -59,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void init(){
-        progressBar     = findViewById(R.id.progress_view);
+        progressBar = findViewById(R.id.progress_view);
+
     }
 }
