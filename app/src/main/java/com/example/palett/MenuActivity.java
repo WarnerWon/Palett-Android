@@ -113,10 +113,16 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
                 connection.setRetryPolicy(new DefaultRetryPolicy(
-                        7000,
+                        5500,
                         0,
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
                 queue.add(connection);
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            default:
                 break;
         }
     }

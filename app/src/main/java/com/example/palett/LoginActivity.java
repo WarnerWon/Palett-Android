@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         });
         objectRequest.setRetryPolicy(new DefaultRetryPolicy(
-                        7000,
+                        5500,
                         0,
                         DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         queue.add(objectRequest);
