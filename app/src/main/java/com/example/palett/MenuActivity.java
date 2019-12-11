@@ -27,6 +27,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button ordenBtn = null, productoBtn = null, materialBtn = null;
     private ArrayList<OrdenData> Lista1 = null;
+    private ArrayList<ProductoData> Lista2 = null;
     private ImageButton notificationBtn = null;
     private RequestQueue queue = null;
 
@@ -67,11 +68,13 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
     }
     protected void Volley(int route){
+        String Url;
+        JsonObjectRequest connection;
         switch (route){
             case 0:
                 Toast.makeText(MenuActivity.this, "Cargando", Toast.LENGTH_SHORT).show();
-                String Url = "http://palett.uttics.com/api/ordenesIndex";
-                JsonObjectRequest connection = new JsonObjectRequest(Request.Method.GET, Url,null, new Response.Listener<JSONObject>() {
+                Url = "http://palett.uttics.com/api/ordenesIndex";
+                connection = new JsonObjectRequest(Request.Method.GET, Url,null, new Response.Listener<JSONObject>() {
                     JSONArray Orders = null;
                     @Override
                     public void onResponse(JSONObject response) {
@@ -119,6 +122,40 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
                 queue.add(connection);
                 break;
             case 1:
+                Toast.makeText(MenuActivity.this, "Cargando", Toast.LENGTH_SHORT).show();
+                Url = "http://palett.uttics.com/api/productosIndex";
+                connection = new JsonObjectRequest(Request.Method.GET, Url,null, new Response.Listener<JSONObject>() {
+                    JSONArray Productos = null;
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            Productos = response.getJSONArray("data");
+                            Lista2 = new ArrayList<>();
+                            for (int i = 0; i < Productos.length(); i++){
+                                ProductoData aux = new ProductoData();
+                                JSONObject Producto = Productos.getJSONObject(i);
+                                aux.setId(Producto.getInt("id"));
+                                aux.setNombre(Producto.getString("Nombre"));
+                                aux.setCantidad(Producto.getInt("Cantidad"));
+                                aux.setPrecio_produccion(Producto.getInt("Precio_produccion"));
+
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            Toast.makeText(MenuActivity.this, String.valueOf(e), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(MenuActivity.this, "Error al comunicarse al servidor", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                connection.setRetryPolicy(new DefaultRetryPolicy(
+                        5500,
+                        0,
+                        DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                queue.add(connection);
                 break;
             case 2:
                 break;

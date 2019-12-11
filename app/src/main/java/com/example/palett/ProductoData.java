@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class ProductoData implements Serializable {
 
-    private int id, Cantidad;
+    private int id, Cantidad, Precio_produccion;
 
     public int getId() {
         return id;
@@ -31,4 +31,12 @@ public class ProductoData implements Serializable {
     }
 
     private String Nombre;
+
+    public int getPrecio_produccion() {
+        return Precio_produccion;
+    }
+
+    public void setPrecio_produccion(int precio_produccion) {
+        Precio_produccion = precio_produccion;
+    }
 }
